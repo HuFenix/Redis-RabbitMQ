@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Common;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApplication2.Controllers
@@ -9,10 +10,17 @@ namespace WebApplication2.Controllers
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
+        private ModelContext _modelContext;
+
+        public ValuesController(ModelContext modelContext)
+        {
+            _modelContext = modelContext;
+        }
         // GET api/values
         [HttpGet]
         public IEnumerable<string> Get()
         {
+
             return new string[] { "value1", "value2" };
         }
 
